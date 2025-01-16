@@ -1,0 +1,23 @@
+<app-nav-bar></app-nav-bar>
+
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+    <label for="name">Name:
+        <input type="text" name="name" ngModel required />
+    </label>
+    <div *ngIf="contactForm.submitted && !contactForm.controls['name']?.valid">
+        Name is required.
+    </div>
+
+    <label for="message">Message:
+        <textarea id="message" name="message" ngModel required minlength="10"></textarea>
+    </label>
+    <div *ngIf="contactForm.submitted && !contactForm.controls['message']?.valid">
+        Message must be at least 10 characters long.
+    </div>
+
+    <button type="submit">Send Message</button>
+</form>
+
+<div *ngIf="successMessage">
+    <h3>{{ successMessage }}</h3>
+</div>
