@@ -2,6 +2,11 @@
     padding: 20px;
   }
   
+
+  .directory h1{
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
   .employee-card {
     display: flex;
     align-items: center;
@@ -23,3 +28,43 @@
     text-decoration: none;
   }
   
+
+
+  .nav-bar{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(196, 56, 22);
+    color: white;
+    height:50px;
+    padding: 10px 20px;
+    
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+
+
+
+.links{
+    right: 5px;
+    border: none;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+
+.links a{
+    margin: 1rem;
+    cursor: pointer;
+
+}
+
+
+.links a:hover{ 
+    background-color: rgb(234, 113, 83);
+    border: 15px solid rgb(234, 113, 83);
+    line-height: 35px;
+}

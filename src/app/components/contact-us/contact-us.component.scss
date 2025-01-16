@@ -1,51 +1,77 @@
-form {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    margin: auto;
-  }
-  
-  label {
-    margin-bottom: 10px;
-    display: block;
-  }
-  
+.contact-us-page {
+  margin: 70px;
+}
 
-  input{
-    display:block;
-    margin-top: 5px;
-    height: 35px;
-  }
-  textarea {
-    height: 50px;
-    display: block;
-    margin-top: 5px;
-  }
+.title {
+  margin-bottom: 20px;
+}
 
-  input,
-textarea {
-  width: 100%;  
-  max-width: 400px; 
-  box-sizing: border-box;
-  padding: 5px; 
-  margin-bottom: 5px; 
-  font-size: 16px; 
+.form-group {
+  margin: 20px auto 20px;
+}
+
+.input-box {
+  display: block;
+  width: 200px;
+}
+
+.submit-btn {
+  background-color: #eb0000;
+  color: white;
+  border-radius: 5px;
+  border-color: transparent;
+  width: 150px;
+  padding: 5px;
+}
+
+.successMessage {
+  color: green;
+  margin-bottom: 50px;
 }
 
 
 
+
+
+.nav-bar{
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(196, 56, 22);
+  color: white;
+  height:50px;
+  padding: 10px 20px;
   
-  button {
-    margin-top: 10px;
-    background-color: #d54b36;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #a73d29;
-  }
-  
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+
+
+.links{
+  right: 5px;
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.links a{
+  margin: 1rem;
+  cursor: pointer;
+
+}
+
+
+.links a:hover{ 
+  background-color: rgb(234, 113, 83);
+  border: 15px solid rgb(234, 113, 83);
+  line-height: 35px;
+}
+
+
+
+

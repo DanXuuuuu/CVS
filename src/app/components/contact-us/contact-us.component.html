@@ -1,23 +1,72 @@
-<app-nav-bar></app-nav-bar>
 
-<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
-    <label for="name">Name:
-        <input type="text" name="name" ngModel required />
-    </label>
-    <div *ngIf="contactForm.submitted && !contactForm.controls['name']?.valid">
-        Name is required.
+
+<nav class="nav-bar">
+  <h3 class="logo">CVS Directory</h3>
+  <div class="links">
+      <a>DIRECTORY</a> 
+      <a>CONTACT US</a> 
+      <a>ABOUT</a> 
+  </div>
+</nav><div class="contact-us-page">
+
+
+  
+<h2 class="title">Contact Us</h2>
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-user-form" [ngStyle]="{ display:Formdisplay }">
+
+    <div class="form-group">
+        <label for="name">Name:</label>
+            <input type="text" name="name" formControlName="name" [class.invalid]="
+            contactForm.get('name')?.touched && contactForm.get('name')?.invalid
+          "
+          [(ngModel)]="nameinput"
+          class="input-box"/>
+        <div *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid" class="error-info">
+            <p *ngIf="contactForm.get('name')?.errors?.['required']">
+                Name is required.
+            </p>
+        </div>
     </div>
-
-    <label for="message">Message:
-        <textarea id="message" name="message" ngModel required minlength="10"></textarea>
-    </label>
-    <div *ngIf="contactForm.submitted && !contactForm.controls['message']?.valid">
-        Message must be at least 10 characters long.
+    <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea
+        type="text"
+        name="message"
+        formControlName="message"
+        [class.invalid]="
+          contactForm.get('message')?.touched &&
+          contactForm.get('message')?.invalid
+        "
+        [(ngModel)]="messageinput"
+        class="input-box"
+      ></textarea>
+      <div
+      *ngIf="
+        contactForm.get('message')?.touched &&
+        contactForm.get('message')?.invalid
+      "
+      class="error-message"
+    >
+    <p *ngIf="contactForm.get('message')?.errors?.['required']">
+        Message is required!</p>
+    <p *ngIf="contactForm.get('message')?.errors?.['minlength']">
+            Message must be at least 10 characters.
+        </p>
     </div>
-
-    <button type="submit">Send Message</button>
+    </div>
+    <button type="submit" class="submit-btn" [disabled]="contactForm.invalid">Submit</button>
 </form>
 
-<div *ngIf="successMessage">
-    <h3>{{ successMessage }}</h3>
+
+<div class="aft-submit" [ngStyle]="{ display: submit_display }">
+    <h3 class="successMessage">
+      Thank You for contacting us. We will be in touch shortly!
+    </h3>
+    <hr />
+    <h4 class="submitted-content">You have submitted the following message:</h4>
+    <h4>Name:</h4>
+    <p>{{ nameinput }}</p>
+    <h4>Message:</h4>
+    <p>{{ messageinput }}</p>
+  </div>
 </div>

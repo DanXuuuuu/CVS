@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-contact-us',
@@ -9,14 +10,22 @@ import { NgForm } from '@angular/forms';
   styleUrl: './contact-us.component.scss'
 })
 export class ContactUsComponent {
-  successMessage:string | null=null;
-  onSubmit(form: NgForm): void {
-  if (form.valid) {
-    const { name, message } = form.value;
-    this.successMessage = `Thank you, ${name}! Your message was: "${message}"`;
-    form.reset(); 
-  } else {
-    this.successMessage = null;
+  contactForm!: FormGroup;
+  Formdisplay = '';
+  submit_display = 'none';
+  nameinput = '';
+  messageinput = '';
+  constructor(private fb: FormBuilder) {
+    this.contactForm = this.fb.group({
+      name: ['', [Validators.required]],
+      message: ['', [Validators.required, Validators.minLength(10)]],
+    });
   }
-}
+
+  onSubmit() {
+    if (this.contactForm.valid) {
+      this.Formdisplay = 'none';
+      this.submit_display = '';
+    }
+  }
 }

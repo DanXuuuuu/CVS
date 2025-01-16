@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataEntity } from '../../services/interfaces/user.interface';
 import { EmployeeService } from '../../services/employee.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-directory',
@@ -11,7 +12,7 @@ import { EmployeeService } from '../../services/employee.service';
 })
 export class DirectoryComponent implements OnInit {
   employees: DataEntity[] = [];
-  constructor(private emloyeeService: EmployeeService){
+  constructor(private emloyeeService: EmployeeService, private router: Router){
 
   }
 
